@@ -10,35 +10,27 @@
     <h1>Kanban</h1>
 
     <form class="add-task-form" id="taskForm">
-        <input type="text" name="taskName" placeholder="Task Name" required />
+        <input type="text" id="taskInput" placeholder="Task Name" required />
         <button class="add-task-btn" type="submit">Add Task</button>
     </form>
 
-    <div class="kanban-board" id="kanbanBoard">
+    <div class="kanban-board" id="kanbanColumns">
 
-        <div class="kanban-column-todo" id="toDoContainer">
+        <div class="kanban-column-todo" id="toDoColumn">
             <div class="column-title-todo">To Do</div>
-            <div class="taskList" id="tasksToDo">
-
-            </div>
         </div>
 
-        <div class="kanban-column-inprogress" id="inProgressContainer">
+        <div class="kanban-column-inprogress" id="inProgressColumn">
             <div class="column-title-inprogress">In Progress</div>
-            <div class="taskList" id="tasksInProgress">
-
-            </div>
         </div>
 
-        <div class="kanban-column-done" id="doneContainer">
+        <div class="kanban-column-done" id="doneColumn">
             <div class="column-title-done">Done</div>
-            <div class="taskList" id="tasksDone">
-
-            </div>
         </div>
 
     </div>
 </main>
 
+<script src="script.js"></script>
 </body>
 </html>

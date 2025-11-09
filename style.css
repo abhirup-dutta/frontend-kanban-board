@@ -7,6 +7,7 @@
     --color-markerpen-red: #8c3834;
     --color-markerpen-green: #39663b;
     --color-sticky-note: #edec93;
+    --color-pushpin: #8c3834;
     --font-handwriting: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
     --font-printed: 'Avenir Next', Helvetica, Arial, sans-serif;
 }
@@ -73,36 +74,33 @@ button {
 /* --- Kanban Columns (e.g., To Do, In Progress) --- */
 .kanban-column-todo {
     background-color: var(--color-whiteboard); /* White background for the column area */
-    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 300px;
     min-height: 400px;
-    border: 3px solid #ddd; /* Subtle border to define the column on the whiteboard */
+    border: 3px solid; /* Subtle border to define the column on the whiteboard */
     border-color: var(--color-markerpen-red);
     border-radius: 20px;
 }
 
 .kanban-column-inprogress {
     background-color: var(--color-whiteboard); /* White background for the column area */
-    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 300px;
     min-height: 400px;
-    border: 3px solid #ddd; /* Subtle border to define the column on the whiteboard */
+    border: 3px solid; /* Subtle border to define the column on the whiteboard */
     border-color: var(--color-markerpen-blue);
     border-radius: 20px;
 }
 
 .kanban-column-done {
     background-color: var(--color-whiteboard); /* White background for the column area */
-    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 300px;
     min-height: 400px;
-    border: 3px solid #ddd; /* Subtle border to define the column on the whiteboard */
+    border: 3px solid; /* Subtle border to define the column on the whiteboard */
     border-color: var(--color-markerpen-green);
     border-radius: 20px;
 }
@@ -136,27 +134,22 @@ button {
 
 /* --- Kanban Card (Yellow Sticky Note) --- */
 .kanban-card {
-    background-color: #ffeb3b; /* Vibrant yellow for the sticky note */
+    background-color: var(--color-sticky-note); /* Vibrant yellow for the sticky note */
     margin-bottom: 10px;
     padding: 15px;
     border-radius: 3px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* A little shadow for depth */
     position: relative;
-    transform: rotate(1deg); /* Optional: Add slight random rotation for authenticity */
+    /* transform: rotate(1deg); /* Optional: Add slight random rotation for authenticity */
     min-height: 80px;
     word-wrap: break-word;
+    color: var(--color-markerpen-blue);
 }
 
 /* Example of how to add random rotation in HTML:
    <div class="kanban-card" style="--rotation: -1;">...</div>
    <div class="kanban-card" style="--rotation: 2;">...</div>
 */
-
-.card-content {
-    font-size: 1em;
-    line-height: 1.4;
-    color: #00008b; /* Blue ink color for the handwritten text */
-}
 
 /* --- Optional: Add a 'pushpin' effect for realism --- */
 .kanban-card::before {
@@ -167,7 +160,7 @@ button {
     transform: translateX(-50%);
     width: 10px;
     height: 10px;
-    background-color: #cc0000; /* Red pushpin color */
+    background-color: var(--color-pushpin); /* pushpin color */
     border-radius: 50%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
