@@ -1,31 +1,32 @@
 
 const taskInput = document.getElementById("taskInput");
+const isPriority = document.getElementById("isPriority");
 const taskForm = document.getElementById("taskForm");
 const columnList = document.getElementById("kanbanColumns").children;
 
 let draggedTask = null;
 
-function createTaskElement(text, id = Date.now().toString()) {
-    const taskElement = document.createElement("div");
-    taskElement.id = id;
-    taskElement.textContent = text;
-    taskElement.className = "kanban-card";
-    taskElement.draggable = true;
+function createTaskElement(text, isPriorityChecked, id = Date.now().toString()) {
+    const taskDOMElement = document.createElement("div");
+    taskDOMElement.id = id;
+    taskDOMElement.textContent = text;
+    taskDOMElement.className = isPriorityChecked ? "kanban-card-priority" : "kanban-card";
+    taskDOMElement.draggable = true;
 
-    taskElement.addEventListener("dragstart", (e) => {
-        draggedTask = taskElement;
+    taskDOMElement.addEventListener("dragstart", (e) => {
+        draggedTask = taskDOMElement;
         e.dataTransfer.effectAllowed = "move";
         setTimeout(() => {
-            taskElement.classList.add("hidden");
+            taskDOMElement.classList.add("hidden");
         }, 0);
     });
 
-    taskElement.addEventListener("dragend", (e) => {
+    taskDOMElement.addEventListener("dragend", (e) => {
         draggedTask = null;
-        taskElement.classList.remove("hidden");
+        taskDOMElement.classList.remove("hidden");
     });
 
-    return taskElement;
+    return taskDOMElement;
 }
 
 function startProgram() {
@@ -33,9 +34,8 @@ function startProgram() {
     taskForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const taskText = taskInput.value.trim();
-        console.log(taskText);
         if (taskText) {
-            const taskElement = createTaskElement(taskText);
+            const taskElement = createTaskElement(taskText, isPriority.checked);
             document.getElementById("toDoColumn").appendChild(taskElement);
             taskInput.value = "";
         }
@@ -44,10 +44,12 @@ function startProgram() {
 
     Array.from(columnList).forEach((column) => {
 
+
         column.addEventListener("dragover", (e) => {
             e.preventDefault();
-            e.dataTransfer.dropEffect = "move";
+            //e.dataTransfer.dropEffect = "move";
         });
+
 
         column.addEventListener("drop", (e) => {
             e.preventDefault();

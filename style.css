@@ -3,21 +3,34 @@
 :root {
     --color-whiteboard: #f5f5f5;
     --color-blackboard: #999999;
+    --color-redboard: #dec5c6;
+    --color-blueboard: #c5d1de;
+    --color-greenboard: #cadec5;
     --color-markerpen-blue: #344e8c;
     --color-markerpen-red: #8c3834;
     --color-markerpen-green: #39663b;
-    --color-sticky-note: #edec93;
-    --color-pushpin: #8c3834;
+    --color-markerpen-priority: #edec93;
+    --color-stickynote: #edec93;
+    --color-stickynote-priority: #344e8c;
     --font-handwriting: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
     --font-printed: 'Avenir Next', Helvetica, Arial, sans-serif;
 }
 
+
 body {
     background-color: var(--color-whiteboard); /* Light gray for the whiteboard background */
     font-family: var(--font-handwriting); /* A font that resembles casual handwriting */
-    color: #00008b; /* Navy blue for default text color, simulating blue ink */
+    color: var(--color-markerpen-blue); /* Navy blue for default text color, simulating blue ink */
     margin: 0;
     padding: 20px;
+}
+
+form {
+    font-family: var(--font-printed); /* A font that resembles casual handwriting */
+    margin: 0;
+    padding: 10px;
+    background-color: var(--color-whiteboard);
+    align-items: center;
 }
 
 h1 {
@@ -30,20 +43,42 @@ h1 {
     font-family: var(--font-printed);
 }
 
-input {
-    min-width: 200px;
-    max-width: 400px;
-    min-height: 40px;
-    max-height: 200px;
-    font-family: var(--font-printed);
-}
 
 button {
-    min-width: 200px;
-    max-width: 400px;
-    min-height: 40px;
-    max-height: 200px;
     font-family: var(--font-printed);
+    height: 80%;
+}
+
+label {
+    font-size: 100%;
+}
+
+.input-text {
+    height: 80%;
+    width: 95%;
+}
+
+.checkbox-container {
+    display: flex;
+    height: 80%;
+    align-items: center;
+    margin: 10px;
+}
+
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    min-width: 50%;
+    max-width: 75%;
+    height: 50px;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }
 
 .whiteboard-wrap {
@@ -73,7 +108,7 @@ button {
 
 /* --- Kanban Columns (e.g., To Do, In Progress) --- */
 .kanban-column-todo {
-    background-color: var(--color-whiteboard); /* White background for the column area */
+    background-color: var(--color-redboard); /* White background for the column area */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 300px;
@@ -84,7 +119,7 @@ button {
 }
 
 .kanban-column-inprogress {
-    background-color: var(--color-whiteboard); /* White background for the column area */
+    background-color: var(--color-blueboard); /* White background for the column area */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 300px;
@@ -95,7 +130,7 @@ button {
 }
 
 .kanban-column-done {
-    background-color: var(--color-whiteboard); /* White background for the column area */
+    background-color: var(--color-greenboard); /* White background for the column area */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 300px;
@@ -134,7 +169,7 @@ button {
 
 /* --- Kanban Card (Yellow Sticky Note) --- */
 .kanban-card {
-    background-color: var(--color-sticky-note); /* Vibrant yellow for the sticky note */
+    background-color: var(--color-stickynote); /* Vibrant yellow for the sticky note */
     margin-bottom: 10px;
     padding: 15px;
     border-radius: 3px;
@@ -146,23 +181,18 @@ button {
     color: var(--color-markerpen-blue);
 }
 
-/* Example of how to add random rotation in HTML:
-   <div class="kanban-card" style="--rotation: -1;">...</div>
-   <div class="kanban-card" style="--rotation: 2;">...</div>
-*/
-
-/* --- Optional: Add a 'pushpin' effect for realism --- */
-.kanban-card::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 10px;
-    background-color: var(--color-pushpin); /* pushpin color */
-    border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+/* --- Kanban Card Priority (Purple Sticky Note) --- */
+.kanban-card-priority {
+    background-color: var(--color-stickynote-priority); /* Vibrant yellow for the sticky note */
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* A little shadow for depth */
+    position: relative;
+    /* transform: rotate(1deg); /* Optional: Add slight random rotation for authenticity */
+    min-height: 80px;
+    word-wrap: break-word;
+    color: var(--color-markerpen-priority);
 }
 
 /* --- Optional: Styling for a button to add new tasks --- */

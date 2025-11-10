@@ -7,11 +7,25 @@
 </head>
 <body>
 <main class="whiteboard-wrap">
-    <h1>Kanban</h1>
+    <h1>Kanban Board</h1>
 
     <form class="add-task-form" id="taskForm">
-        <input type="text" id="taskInput" placeholder="Task Name" required />
-        <button class="add-task-btn" type="submit">Add Task</button>
+        <div class="form-row">
+            <div class="form-group">
+                <input class="input-text" type="text" id="taskInput" placeholder="Task Name" required />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <button class="add-task-btn" type="submit">Add Task</button>
+            </div>
+            <div class="form-group">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="isPriority" class="custom-checkbox">
+                    <label for="isPriority">High Priority</label>
+                </div>
+            </div>
+        </div>
     </form>
 
     <div class="kanban-board" id="kanbanColumns">
