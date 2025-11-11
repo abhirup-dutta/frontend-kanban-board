@@ -14,6 +14,7 @@
     --color-stickynote-priority: #344e8c;
     --font-handwriting: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
     --font-printed: 'Avenir Next', Helvetica, Arial, sans-serif;
+    --height-card: 60px;
 }
 
 
@@ -219,7 +220,7 @@ input[type="text"]::placeholder {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* A little shadow for depth */
     position: relative;
     /* transform: rotate(1deg); /* Optional: Add slight random rotation for authenticity */
-    min-height: 80px;
+    min-height: var(--height-card);
     word-wrap: break-word;
     color: var(--color-markerpen-blue);
 }
@@ -233,7 +234,7 @@ input[type="text"]::placeholder {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* A little shadow for depth */
     position: relative;
     /* transform: rotate(1deg); /* Optional: Add slight random rotation for authenticity */
-    min-height: 80px;
+    min-height: var(--height-card);
     word-wrap: break-word;
     color: var(--color-markerpen-priority);
 }
@@ -253,4 +254,8 @@ input[type="text"]::placeholder {
 
 .add-task-btn:hover {
     background-color: #d0d0d0;
+}
+
+.delete-mark:hover {
+    cursor: pointer;
 }
