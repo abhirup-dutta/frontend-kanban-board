@@ -1,4 +1,5 @@
 const SEPARATOR = " ";
+const DELETE_MARK = "(✘)";
 
 const taskInput = document.getElementById("taskInput");
 const isPriority = document.getElementById("isPriority");
@@ -76,7 +77,7 @@ function createDeleteMark(taskId) {
     let deleteDOMElement = document.createElement("span");
     deleteDOMElement.id = "delete" + taskId;
     deleteDOMElement.className = "delete-mark";
-    deleteDOMElement.textContent = "(X)";
+    deleteDOMElement.textContent = DELETE_MARK;
     deleteDOMElement.addEventListener("click", (e) => {
         document.getElementById(taskId).remove();
         deleteTask_From_LocalStorage(taskId);
@@ -88,7 +89,7 @@ function createDeleteDoneMark() {
     let deleteDOMElement = document.createElement("span");
     deleteDOMElement.id = "deleteDone";
     deleteDOMElement.className = "delete-mark";
-    deleteDOMElement.textContent = "(X)";
+    deleteDOMElement.textContent = DELETE_MARK;
     deleteDOMElement.addEventListener("click", (e) => {
 
         let tasksDone = document.getElementById("doneColumn").children;
@@ -106,7 +107,7 @@ function createDeleteAllMark() {
     let deleteDOMElement = document.createElement("span");
     deleteDOMElement.id = "deleteAll";
     deleteDOMElement.className = "delete-mark";
-    deleteDOMElement.textContent = "(X)";
+    deleteDOMElement.textContent = DELETE_MARK;
     deleteDOMElement.addEventListener("click", (e) => {
         let isDeleteConfirmed = confirm("Are you sure you want to delete all tasks on all boards?");
         if (isDeleteConfirmed) {
@@ -207,6 +208,9 @@ function startProgram() {
         }
 
         saveTasks_To_LocalStorage();
+
+        /* Unset the checkbox after adding task */
+        isPriority.checked = false;
     });
 
 
